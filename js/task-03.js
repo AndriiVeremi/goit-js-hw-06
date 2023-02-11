@@ -13,19 +13,20 @@ const images = [
   },
 ];
 
-const galeryItemListEl = document.querySelector('.gallery')
+const galleryItemListEl = document.querySelector('.gallery')
 
 const imagesListEl = images.map(img => {
 
   const imageEl = document.createElement('img');
+  imageEl.classList.add('gallery-img');
   imageEl.src = img.url;
   imageEl.alt = img.alt;
-  imageEl.width = 300;
-  
+
   const navItemEl = document.createElement('li');
+  navItemEl.classList.add('gallery-item');
   navItemEl.append(imageEl);
   
-  galeryItemListEl.append(navItemEl)
+  galleryItemListEl.append(navItemEl);
   
 });
 
