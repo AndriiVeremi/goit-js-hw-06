@@ -15,10 +15,10 @@ colectItemEl.style.marginTop = '30px';
 inputAreaEl.addEventListener('input', toogleValue);
 
 createBtnEl.addEventListener('click', () => {
-  createBoxes(Number(inputAreaEl.value));
+  createBox(Number(inputAreaEl.value));
 });
 
-destroyBtnEl.addEventListener('click', destroyBoxesMarkup);
+destroyBtnEl.addEventListener('click', destroyBox);
 
 let inputValue = 0;
 
@@ -27,12 +27,17 @@ function toogleValue(event) {
   console.log(inputValue);
 }
 
-function createBoxes(amount) {
+function createBox(amount) {
+
   let divArray = [];
   let sizeDefault = 30;
+  
   for (let i = 0; i < amount; i += 1) {
+
     sizeDefault += 10;
+
     const divItem = document.createElement('div');
+
     divItem.classList = 'item';
     divItem.style.height = `${sizeDefault}px`;
     divItem.style.width = `${sizeDefault}px`;
@@ -41,10 +46,11 @@ function createBoxes(amount) {
     divItem.style.backgroundColor = getRandomHexColor();
     colectItemEl.appendChild(divItem);
   }
+
   return colectItemEl.append(...divArray);
 }
 
-function destroyBoxesMarkup() {
+function destroyBox() {
   inputAreaEl.value = '';
   return (colectItemEl.innerHTML = '');
 }

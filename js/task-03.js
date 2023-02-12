@@ -25,9 +25,9 @@ const imagesListEl = images.map(img => {
   const navItemEl = document.createElement('li');
   navItemEl.classList.add('gallery-item');
   navItemEl.append(imageEl);
-  
+
   galleryItemListEl.append(navItemEl);
-  
+
 });
 
 
