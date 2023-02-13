@@ -13,22 +13,33 @@ const images = [
   },
 ];
 
-const galleryItemListEl = document.querySelector('.gallery')
+// const galleryItemListEl = document.querySelector('.gallery')
 
-const imagesListEl = images.map(img => {
+// const imagesListEl = images.map(img => {
 
-  const imageEl = document.createElement('img');
-  imageEl.classList.add('gallery-img');
-  imageEl.src = img.url;
-  imageEl.alt = img.alt;
+//   const imageEl = document.createElement('img');
+//   imageEl.classList.add('gallery-img');
+//   imageEl.src = img.url;
+//   imageEl.alt = img.alt;
 
-  const navItemEl = document.createElement('li');
-  navItemEl.classList.add('gallery-item');
-  navItemEl.append(imageEl);
+//   const navItemEl = document.createElement('li');
+//   navItemEl.classList.add('gallery-item');
+//   navItemEl.append(imageEl);
 
-  galleryItemListEl.append(navItemEl);
+//   galleryItemListEl.append(navItemEl);
 
-});
+// });
 
 
+const galleryItemListEl = document.querySelector('.gallery');
+
+const galleryItemsEl = ({ url, alt }) =>
+  `<li><img src="${url}" alt="${alt}" width = 300 height = 200></li>`;
+
+const galleryMarkup = images.reduce( 
+  (acc, item) => acc + galleryItemsEl(item),
+  []
+);
+
+galleryItemListEl.insertAdjacentHTML('afterbegin', galleryMarkup);
 
